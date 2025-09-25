@@ -283,8 +283,6 @@ function initContactForm() {
         });
 
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             // Get form data
             const formData = new FormData(this);
             const name = formData.get('name').trim();
@@ -298,6 +296,7 @@ function initContactForm() {
             isValid = validateField(this.querySelector('#message')) && isValid;
             
             if (!isValid) {
+                e.preventDefault();
                 showNotification('Please fill in all fields correctly.', 'error');
                 return;
             }
@@ -308,26 +307,16 @@ function initContactForm() {
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitButton.disabled = true;
             
-            // Simulate form submission (replace with actual Formspree submission)
-            setTimeout(() => {
-                // Reset form
-                this.reset();
-                
-                // Reset button
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-                
-                // Show success message
-                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-                
-                // Add success analytics event
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        event_category: 'Contact',
-                        event_label: 'Contact Form'
-                    });
-                }
-            }, 2000);
+            // Add analytics event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    event_category: 'Contact',
+                    event_label: 'Contact Form'
+                });
+            }
+            
+            // Let the form submit naturally to Formspree
+            // The loading state will be reset when page redirects/reloads
         });
     }
 }
