@@ -14,6 +14,11 @@
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   
+  /* Footer colors */
+  --footer-bg: #2d3748;
+  --footer-text: #ffffff;
+  --footer-link: #a0aec0;
+  
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
@@ -40,6 +45,11 @@
   --border-color: #4a5568;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  
+  /* Footer colors for dark mode */
+  --footer-bg: #0f1419;
+  --footer-text: #e2e8f0;
+  --footer-link: #718096;
 }
 
 /* Reset and Base Styles */
@@ -1067,8 +1077,8 @@ ul {
 
 /* Footer */
 .footer {
-  background: var(--text-primary);
-  color: var(--background);
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding: 3rem 0 1rem;
 }
 
@@ -1082,7 +1092,7 @@ ul {
 .footer-links h4,
 .footer-social h4 {
   margin-bottom: 1rem;
-  color: var(--background);
+  color: var(--footer-text);
 }
 
 .footer-links ul {
@@ -1092,12 +1102,12 @@ ul {
 }
 
 .footer-links a {
-  color: #a0aec0;
+  color: var(--footer-link);
   transition: var(--transition);
 }
 
 .footer-links a:hover {
-  color: white;
+  color: var(--footer-text);
   transform: translateX(5px);
 }
 
@@ -1110,7 +1120,7 @@ ul {
   width: 40px;
   height: 40px;
   background: var(--primary-color);
-  color: white;
+  color: var(--footer-text);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1126,8 +1136,8 @@ ul {
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid #4a5568;
-  color: #a0aec0;
+  border-top: 1px solid var(--border-color);
+  color: var(--footer-link);
 }
 
 /* Scroll to Top Button */
