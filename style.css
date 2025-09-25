@@ -9,6 +9,7 @@
   --text-muted: #718096;
   --background: #ffffff;
   --background-secondary: #f7fafc;
+  --background-rgb: 255, 255, 255;
   --border-color: #e2e8f0;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -35,7 +36,10 @@
   --text-muted: #a0aec0;
   --background: #1a202c;
   --background-secondary: #2d3748;
+  --background-rgb: 26, 32, 44;
   --border-color: #4a5568;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 /* Reset and Base Styles */
@@ -165,7 +169,7 @@ ul {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(var(--background-rgb, 255, 255, 255), 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
@@ -173,7 +177,7 @@ ul {
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(var(--background-rgb, 255, 255, 255), 0.98);
   box-shadow: var(--shadow);
 }
 
@@ -249,7 +253,7 @@ ul {
   display: flex;
   align-items: center;
   padding-top: 4rem;
-  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -1064,7 +1068,7 @@ ul {
 /* Footer */
 .footer {
   background: var(--text-primary);
-  color: white;
+  color: var(--background);
   padding: 3rem 0 1rem;
 }
 
@@ -1078,7 +1082,7 @@ ul {
 .footer-links h4,
 .footer-social h4 {
   margin-bottom: 1rem;
-  color: white;
+  color: var(--background);
 }
 
 .footer-links ul {
